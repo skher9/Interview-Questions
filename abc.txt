@@ -1,0 +1,38 @@
+
+
+## Question 8:
+
+Can you provide an example of using map to double each element of an array?
+
+## Answer:
+
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(num => num \* 2); // doubled is now [2, 4, 6, 8, 10]
+
+## Question 9:
+
+Use filter to get only the even numbers from an array.
+
+## Answer:
+
+const numbers = [1, 2, 3, 4, 5];
+const evenNumbers = numbers.filter(num => num % 2 === 0); // evenNumbers is now [2, 4]
+
+## Question 10:
+
+How would you use reduce to find the sum of all elements in an array?
+
+## Answer:
+
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0); // sum is now 15
+
+
+
+## Question 12:
+
+Can you chain map, filter, and reduce together?
+
+## Answer:
+
+Yes, you can chain these functions together to create more complex transformations or aggregations on arrays. Each function in the chain operates on the result of the previous one.
