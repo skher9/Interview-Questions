@@ -47,160 +47,148 @@ Hoisting is a behaviour in which the variables and function declarations are mov
 
 ## Question 5.
 
-function abc (){
-console.log(a,b,c);
-
-    const a = 30;
-    let b = 20;
-    var c = 10;
-
-}
-abc()
-What will be the output of the above snippet.
+Difference between "==" and "===" operators.
 
 ## Answer:
 
-For "Var" the output will be "undefined" as the variable will be hoisted.
-But for "Const" and "Let" the output will be "Undefined" but they will be initialized in the temporal dead zone.
+When comparing two variables using '==' it converts both the variables to the same type & then comapares them.
+But in terms of '===' the variabled have to be of same type to be considerd to be equal.
 
-The Temporal Dead Zone is term to describe a state where vairiables are in the scope but they are not yet declared.
+## Question 6.
 
-## Question 6:
-
-What is the purpose of the map function in JavaScript?
+Explain Pass_By_Value and Pass_By_Reference .
 
 ## Answer:
 
-The map function in JavaScript is used to transform each element of an array based on a provided function and create a new array with the results.
+Pass by value is basically where we send a copy of a varible that needs to be sent. If the sent varaible is modified then the original variable
+will have no impact of it.
 
-## Question 7:
+Pass by reference is basically where we send the address of the original variable instead of a copy. So if the sent varaible is modified the original variable is imapacted as its updated through reference.
 
-Explain the filter function in JavaScript.
+## Question 7.
 
-## Answer:
-
-The filter function is used to create a new array containing only the elements that satisfy a specified condition. It filters out elements that do not pass the condition.
-
-## Question 8:
-
-How does the reduce function work in JavaScript?
+What is IFFE (Immediately Invoked Function Expression).
 
 ## Answer:
 
-The reduce function is used to accumulate values of an array into a single result. It takes a callback function and an optional initial value. The callback function takes an accumulator and the current element, and it updates the accumulator with each iteration.
+Immediately invoked function expression is a function that is called as soon as it is defined. It is known as IFFE.
+
+(function()
+{
+console.log("Inside IFFE")
+})();
+
+## Question 8.
+
+Explain Higher Order Functions.
+
+## Answer:
+
+Higher Order Functio is nothing but a function which takes one or more functions as argument or returns a function is called Higher Order Function.
 
 ## Question 9.
 
-Polyfills for map() function.
+Explain call(), apply(), bind().
 
 ## Answer:
 
-Array.prototype.newMap = function(callBack)
-{
-let temp = [];
-for (let i=0;i < this.length; i++)
-{
-temp.push(callBack(this[i],i,this));
-}
-return temp;
-}
+Call, apply and bind all are pre-defined functions is Javascript.
+
+call(): It invokes a function with specific "this" value and individual arguments are passed as comma seperated.
+
+apply(): It is similar to call but the arguments are passed in form of array.
+
+bind(): It creates a new function which specific "this" value. It returns a new function that can be called later.
 
 ## Question 10.
 
-Polyfills for filter() function.
+Explain Closure in Javascript.
 
 ## Answer:
 
-Array.prototype.newFilter(callBack)
-{
-let temp = [];
-
-    for (let i=0;i < this.length; i++)
-    {
-        if (condition)
-        {
-            temp.push(callBack(this[i],i,this));
-        }
-    }
-    return temp;
-
-}
+Closure is a concept in javascript in which the inner function has access to lexical scope i.e. its outer function even if the outer function execution is completed.
 
 ## Question 11.
 
-Polyfills for reduce() function.
+What are object prototype?
 
 ## Answer:
 
-Array.prototype.newReduce(callBack,initialValue)
-{
-var accumulator
-let temp = [];
+A prototype is a blueprint of an object which allows you to use properties and methods of another object even though the properties and object are not present in the current object.
 
-    for (let i=0;i < this.length; i++)
-    {
-        if (condition)
-        {
-            temp.push(callBack(this[i],i,this));
-        }
-    }
-    return temp;
+## Question 12.
 
-}
-
-## Question 12:
-
-What is the difference between map and forEach?
+What are callback functions:
 
 ## Answer:
 
-While both map and forEach iterate over arrays, map creates a new array based on the transformation specified in the callback function, whereas forEach simply performs an action for each element without creating a new array.
+The function that can be passed as a argument to another function is called as callback function.
 
-## Info:
+## Question 13.
 
-const Students = [
-{name:"Piyush", rollNumber: 31, marks: 80},
-{name: "Jenney", rollNumber:15, marks: 69},
-{name: "Kaushal",rollNumber:16, marks: 35},
-{name: "Dilpreet",rollNumber:7, marks: 55}
-]
-
-## Question 13. Return only name of Students in Capital.
+Explain REST and SPREAD operator.
 
 ## Answer:
 
-const names = Students.map((student)=>{student.name.toUpperCase()})
+Rest operator is used to represent multiple no. of arguments in a array in a function or basically to colllect the remanining elements of an array. It is basically used for function parameter to represent an indefinite number of arguments in a array.
 
-## Question 14. Return only the details of those who have scored more than 60.
+Spread operator is used to spread the elements of an array or object into another array or object.
 
-## Answer:
+## Question 14.
 
-const details = Students.filter((student)=>student.marks>60)
-
-## Question 15. Return details of those who have marks above 60 and roll no. over 15
+What are Promises?
 
 ## Answer:
 
-const details = Students.filter((student)=>student.marks>60 && student.rollNumber > 15)
+Promises is a concept in javascript which is used to handle asynchronous operations in more effecient way.
 
-## Question 16. Calculate the Sum of marks of all students.
+It has 3 stages:
+
+1. Pending 2. Resolved 3. Rejected.
+
+A promise takes a callback function with two parameters Resolved and Rejected.
+We can consume the promise by attaching the .then() and .catch().
+
+If the promise is resolved we resolve it using .then() and if by any means it is rejected with catch the error in .catch().
+
+## Question 15.
+
+What is Memoization?
 
 ## Answer:
 
-const Sum = Students.reduce((total, marks)=>total = total+marks,0)
+Memoization is a concept in which a function will return the same output if the same set of inputs is provided. The output is cached in the memory and is returned if the input is same.
 
-## Question 17. Return only names of student who scored more than 60.
+## Question 16.
+
+Explain useState() hook in react.
 
 ## Answer:
 
-const names = Students.filter((student)=>student.marks>60).map((student)=>student.name)
+useState is a hook in react which is used to manage a state in functional component. It returns a array with two values: currentValue and a setter function which can be used to update the current value. And it takes initial state as a argument and return the updated state value whenever the setter function is invoked. Also a component is re-rendered everytime the value is updated.
 
-## Question 18. Return total marks for students with marks greater than 60 after 20 marks have been added to those who scored less than 60.
+## Question 17.
 
-const Total = Students.map((student)=>{
-if(student.marks<60)
-{
-student.marks += 20;
-}
-return student
-}).filter((student)=>student.marks>60).reduce((total,marks)=> total = total+ marks)
+Explain useEffect() hook in react.
+
+## Answer:
+
+useEffect is a hook in react basically mimics the lifecycle method in react.
+
+It takes two arguments a callback function and a dependancy array.
+
+If the dependancy array is empty the useEffect will behave like a componentDidMount and will be called only after the inital render.
+
+If the dependancy array has a value then useEffect will behave like a componentDidUpdate and will be called after initial render and everytime the value inside the dependancy array is updated.
+
+Also when we return something from useEffect it behaves like a componentDidUnmount.
+
+## Question 18.
+
+Explain useMemo() hook in react.
+
+## Answer:
+
+useMemo hook uses the concept of memiozation. This can be used if there is a big computation for certain set of input , then the function will be implemented once and its output will be cached for the specific set of input. Unless & until the inputs are changed the cached output will be returned.
+
+useMemo(()=>{},[])
