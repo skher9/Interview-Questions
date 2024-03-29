@@ -151,6 +151,13 @@ We can consume the promise by attaching the .then() and .catch().
 
 If the promise is resolved we resolve it using .then() and if by any means it is rejected with catch the error in .catch().
 
+Promise.all() : It takes array of promises and returns a single promise. If all the promises are resolved then the final promise will be resolved but if any of the promise is rejected the final promise will be rejected. If the array if empty the resulting promise will be fulfilled.
+
+Promise.allSettled() : It takes array of promises and returns a single promise.The resulting promise will be resolved when all the promises are settled doesn't matter the outcome of individual promise.
+
+Promise.any() : It takes array of promises and returns a single promise. If any of the promise is resolved the resulting promise is resolved. But if all the promises in the array are rejected then the resulting promise is rejected.
+
+
 ## Question 15.
 
 What is Memoization?
@@ -190,5 +197,63 @@ Explain useMemo() hook in react.
 ## Answer:
 
 useMemo hook uses the concept of memiozation. This can be used if there is a big computation for certain set of input , then the function will be implemented once and its output will be cached for the specific set of input. Unless & until the inputs are changed the cached output will be returned.
+The dependancy array cannot be empty when we are using the useMemo hook.
 
-useMemo(()=>{},[])
+useMemo(()=>{},[]);
+
+## Question 19. 
+
+Explain useCallback() hook in react.
+
+## Answer:
+
+useCallback hook uses the concept of memoization again similar to useMemo. This is mainly used when passing a callback function from parent component to child component. It memoization the callback function & prevents the unnecessary re-renders.
+If the dependancy array is empty the useCallback will be executed once and if the dependancy array has a value , the useCallback will be executed everytime the value in the array is updated.
+
+useCallback(()=>{},[])
+
+## Question 20. 
+
+Explain useContext() hook in react.
+
+## Answer:
+
+useContext hook in react allows the component to interact with each other without having to pass data through every single component.
+
+## Question 21.
+
+Explain EventLoop.
+
+## Answer:
+
+So basically when we implement any async operation in javascript , their corresponding callbacks are pushed into event queue after the completion. The main job of event loop is to continously check if the call stack is empty and if it is empty the callbacks from event queue are pushed to call stack one by one.
+
+While moving the callbacks from event queue to call stack on basis of priority. The microtasks are given more priority than macrotasks.
+
+Microtasks:
+
+Promises, async-await, .then(), .catch(), .finally().
+
+Macrotasks:
+
+setTimeout , setinterval, userEvents.
+
+## Question 22.
+
+Explain Debouncing.
+
+## Answer:
+
+It is a technique that delays the execution of a function until the user stops performing certain actions for specific period of time.
+
+To implement this we can use a setTimeOut to set a timer that will execute the function after delay period. We can also use clearTimeOut to cancle the timer if the user performs action again before the delay time ends.
+
+## Question 23.
+
+Explain Throttling.
+
+## Answer:
+
+It is a technique that used to control the rate at which a function is executed, it basically limits the function execution to a fixed interval of time.
+
+To implement throttling, we can use a flag variable to track if the function is ready to run or not. So we can use setTimeOut to set a timer that will set the flag after a time interval. you can use if to check if the flag is true and if it is true the function is executed.
